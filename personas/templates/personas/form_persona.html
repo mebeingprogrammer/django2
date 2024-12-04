@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>{{ accion }} Persona</title>
+    <link rel="stylesheet" href="{% static 'personas/styles.css' %}">
+</head>
+<body>
+    <h1>{{ accion }} Persona</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{{ accion }}</button>
+        <a href="{% url 'lista_personas' %}">Cancelar</a>
+    </form>
+</body>
+</html>

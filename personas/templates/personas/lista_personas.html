@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Lista de Personas</title>
+    <link rel="stylesheet" href="{% static 'personas/styles.css' %}">
+</head>
+<body>
+    <h1>Lista de Personas</h1>
+    <a href="{% url 'crear_persona' %}">Agregar Persona</a>
+    <ul>
+        {% for persona in personas %}
+            <li>
+                {{ persona.nombre }} {{ persona.apellido }} - {{ persona.edad }} años
+                <a href="{% url 'editar_persona' persona.id %}">Editar</a>
+                <a href="{% url 'eliminar_persona' persona.id %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
